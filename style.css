@@ -143,6 +143,10 @@ nav ul a svg {
   }
 
   nav {
+    position: fixed;
+    width: 100%;
+    top: unset;
+    bottom: 0;
     padding: 0 15px;
   }
 
@@ -154,4 +158,5 @@ nav ul a svg {
     display: block;
     margin: 0 auto 10px;
   }
+
 }
