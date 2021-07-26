@@ -5,6 +5,7 @@
   --green: #15cdcb;
   --bg-dark: #212226;
   --light-grey: #e0dede;
+  --medium-grey: #2f3034;
 
   --menu-height: 75px;
 }
@@ -37,8 +38,18 @@ h2 {
   font-size: 24px;
 }
 
+h1,
+h2 {
+  margin: 0;
+  font-weight: 400;
+}
+
 p {
   color: var(--light-grey);
+}
+
+p {
+  margin: 0;
 }
 
 button {
@@ -49,6 +60,22 @@ button {
   color: #fff;
   font-weight: bold;
   font-size: 18px;
+}
+
+.secondary-button {
+  background: var(--medium-grey);
+  border: 1px solid var(--purple);
+  border-radius: 16px;
+  color: var(--green);
+  font-weight: bold;
+  height: 80px;
+
+  display: flex;
+  align-items: center;
+}
+
+.secondary-button img {
+  margin-right: 15px;
 }
 
 .title-purple {
@@ -140,13 +167,150 @@ nav ul a svg {
 
   position: absolute;
   top: -25px;
-  left: calc(50% - 70%/2 - 25px);
+  left: calc(50% - 70% / 2 - 25px);
 }
 
 .about-me .img-container .line.green {
   transform: rotate(-3.3deg);
   border-color: var(--green);
 }
+
+.services {
+  text-align: center;
+  margin: 150px 0;
+  padding: 0 100px;
+}
+
+.services-container,
+.portfolio-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 60px auto 0;
+}
+
+.services .services-container .service-card {
+  max-width: 360px;
+  background: #2f3034;
+  border: 1px solid var(--purple);
+  border-radius: 16px;
+  padding: 40px 25px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.services .services-container .service-card img {
+  margin-bottom: 40px;
+}
+
+.service-card + .service-card {
+  margin-left: 10px;
+}
+
+.portfolio {
+  background: url(assets/portfolio-bg.png);
+  margin-bottom: 100px;
+  padding: 0 100px;
+  text-align: center;
+  height: 800px;
+}
+
+.portfolio .portfolio-container {
+  margin-top: 130px;
+}
+
+.portfolio .portfolio-container .portfolio-card {
+  background: radial-gradient(
+    100% 100% at 0% 0%,
+    rgba(255, 255, 255, 0.33) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  box-shadow: 0px 4px 24px -1px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(42px);
+  border: 1px solid #fff;
+
+  border-radius: 16px;
+  max-width: 360px;
+  text-align: left;
+  padding: 50px 20px;
+}
+
+.portfolio .portfolio-container .portfolio-card .img-container {
+  margin: 0 25px 50px;
+  position: relative;
+}
+
+.portfolio .portfolio-container .portfolio-card .img-container img {
+  width: 100%;
+}
+
+.portfolio-container .portfolio-card .img-container .line {
+  width: calc(100% + 24px);
+  height: calc(100% + 24px);
+  border: 1px solid var(--green);
+  border-radius: 16px;
+  transform: rotate(-1.93deg);
+
+  position: absolute;
+  top: -12px;
+  left: calc(50% - 100% / 2 - 12px);
+}
+
+.portfolio .portfolio-container .portfolio-card .language-container {
+  margin-bottom: 20px;
+}
+
+.portfolio .portfolio-container .portfolio-card .language-container ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+}
+
+.portfolio .portfolio-container .portfolio-card .language-container ul li {
+  color: var(--green);
+  border: 1px solid currentColor;
+  border-radius: 16px;
+  padding: 3px 15px;
+}
+
+.portfolio-card .language-container ul li + li {
+  margin-left: 10px;
+}
+
+.portfolio-card + .portfolio-card {
+  margin-left: 10px;
+}
+
+.curriculum {
+  padding: 0 100px;
+  text-align: center;
+}
+
+.curriculum .container {
+  display: flex;
+  margin: 50px auto;
+  max-width: 1200px;
+}
+
+.curriculum .container .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  width: 100%;
+}
+
+.curriculum .container .content .curriculum-info {
+  display: grid;
+  grid-template-columns: 150px auto;
+  grid-gap: 1rem;
+  margin-bottom: 50px;
+}
+/* Responsividade */
 
 @media (max-width: 1000px) {
   header .container {
@@ -176,6 +340,41 @@ nav ul a svg {
   .about-me .img-container {
     margin: 70px 0;
   }
+
+  .services,
+  .portfolio {
+    padding: 0;
+  }
+
+  .services .services-container,
+  .portfolio .portfolio-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .service-card {
+    height: 394px;
+  }
+  .service-card + .service-card,
+  .portfolio-card + .portfolio-card {
+    margin-left: 0;
+    margin-top: 30px;
+  }
+
+  .portfolio {
+    height: 100%;
+  }
+
+  .curriculum .container {
+    flex-wrap: wrap;
+  }
+
+  .curriculum .container .curriculum-img {
+    display: block;
+    margin: 50px auto;
+    width: 100%;
+    max-width: 520px;
+  }
 }
 
 @media (max-width: 767px) {
@@ -198,6 +397,9 @@ nav ul a svg {
 }
 
 @media (max-width: 480px) {
+  body {
+    margin-bottom: calc(var(--menu-height) + 50px);
+  }
   header .container {
     padding: 0 40px;
   }
@@ -223,4 +425,28 @@ nav ul a svg {
     padding: 40px;
   }
 
+  .services {
+    margin-top: 70px;
+  }
+
+  .services .services-container,
+  .portfolio .portfolio-container {
+    padding: 0 20px;
+  }
+
+  .portfolio {
+    margin: 100px 0 50px;
+  }
+
+  .portfolio .portfolio-container {
+    margin-top: 70px;
+  }
+
+  .curriculum {
+    padding: 0 20px;
+  }
+
+  .curriculum .curriculum-info {
+    margin: 0 15px;
+  }
 }
